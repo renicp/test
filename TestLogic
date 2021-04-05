@@ -1,0 +1,42 @@
+
+import java.util.*;
+
+public class Test {
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(numberThree("souvenir loud four lost", 4)));
+        System.out.println(Arrays.toString(numberTwo(new int[]{1,2,3,4},4)));
+        System.out.println(numberOne(new int[]{3,1,4,2}));
+    }
+
+    static int numberOne(int[] arr)
+    {
+        int i;
+        int number = arr[0];
+        for (i = 1; i < arr.length; i++) {
+            if (arr[i] > number)
+                number = arr[i];
+        }
+        return number;
+    }
+
+    static Integer[] numberTwo(int[] arr, Integer x){
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < arr.length ; i++) {
+            if((x/arr[i]) != x){
+                result.add(arr[i]);
+            }
+        }
+        return result.toArray(new Integer[result.size()]);
+    }
+
+    static String[] numberThree(String word, Integer x){
+        List<String> data = Arrays.asList(word.split(" "));
+        List<String> result = new ArrayList<>();
+        for (int i = 0; i < data.size() ; i++) {
+            if(data.get(i).length() == x){
+                result.add(data.get(i));
+            }
+        }
+        return result.toArray(new String[0]);
+    }
+}
